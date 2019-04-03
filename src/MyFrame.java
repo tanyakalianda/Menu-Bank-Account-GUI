@@ -10,18 +10,23 @@ import javax.swing.JPanel;
 public class MyFrame extends JFrame
 {
 	private ArrayList<BankAccount> accounts = new ArrayList<BankAccount>();
+	private WelcomeScreen welcome;
+	private CreateAccount createAccount;
 	
 	public MyFrame()
 	{
+		setBounds(100,100,800,500);
+		
+		
 		CardLayout cl = new CardLayout();
 		JPanel overall = new JPanel();     
 		overall.setLayout(cl);
 		
-//		overall.add(WelcomeScreen, "Welcome Screen");
-		
-		
-		
-		
+		welcome = new WelcomeScreen();
+		overall.add(welcome, "Welcome Screen");
+		cl.show(overall, "Welcome Screen");
+		add(overall);
+				
 		JMenuBar menubar = new JMenuBar();
 		
 		JMenu accountMenu = new JMenu("Account");
@@ -46,12 +51,25 @@ public class MyFrame extends JFrame
 		
 		JMenu home = new JMenu("Home Screen");
 		menubar.add(home);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		setJMenuBar(menubar);
+		setVisible(true);
+		setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+		
 	}
 	
 	
 	public static void main(String[] args) 
 	{
-		// TODO Auto-generated method stub
+		new MyFrame();
 
 	}
 

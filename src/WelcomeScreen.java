@@ -3,6 +3,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -17,9 +18,9 @@ public class WelcomeScreen extends JPanel
 		gbc.gridx = 0;    
 		gbc.gridy = 0;
 		
-		JButton text = new JButton("Welcome to the Bank Account Management System");
-		text.setPreferredSize(new Dimension(400,200));
+		JLabel text = new JLabel("Welcome to the Bank Account Management System!");
 		add(text, gbc);
+		
 		
 	}
 	
