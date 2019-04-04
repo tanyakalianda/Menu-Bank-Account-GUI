@@ -1,7 +1,11 @@
 import java.awt.CardLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -21,17 +25,18 @@ public class MyFrame extends JFrame
 		CardLayout cl = new CardLayout();
 		JPanel overall = new JPanel();     
 		overall.setLayout(cl);
+		add(overall);
 		
 		welcome = new WelcomeScreen();
 		overall.add(welcome, "Welcome Screen");
 		cl.show(overall, "Welcome Screen");
-		add(overall);
+		
 				
 		JMenuBar menubar = new JMenuBar();
 		
 		JMenu accountMenu = new JMenu("Account");
-		JMenuItem createAccount = new JMenuItem("Create an Account");
-		accountMenu.add(createAccount);                         
+		JMenuItem create = new JMenuItem("Create an Account");
+		accountMenu.add(create);                         
 		JMenuItem removeAccount = new JMenuItem("Remove an Account");
 		accountMenu.add(removeAccount);
 		JMenuItem findAccount = new JMenuItem("Find an Account");
@@ -53,9 +58,32 @@ public class MyFrame extends JFrame
 		menubar.add(home);
 		
 		
+		createAccount = new CreateAccount(accounts);
+		overall.add(createAccount, "Create Account");
+	
+		create.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				cl.show(overall,  "Create Account");
+			}
+		});
 		
 		
 		
+		
+		
+		
+		home.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				cl.show(overall,  "Welcome Sceen");
+			}
+		});
+		
+		
+
 		
 		
 		
