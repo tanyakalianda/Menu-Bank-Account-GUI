@@ -93,7 +93,7 @@ public class CreateAccount extends JPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				System.out.print("Your Accounts: " + accounts.toString());
+				System.out.println("Your Accounts: " + accounts.toString());
 				displayAccount.setText("Account Displayed");
 				balanceBox.setText("");
 				nameBox.setText("");

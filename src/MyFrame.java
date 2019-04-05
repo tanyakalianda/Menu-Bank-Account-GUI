@@ -16,6 +16,8 @@ public class MyFrame extends JFrame
 	private ArrayList<BankAccount> accounts = new ArrayList<BankAccount>();
 	private WelcomeScreen welcome;
 	private CreateAccount createAccount;
+	private RemoveAccount removeAccount;
+	private FindAccount findAccount;
 	
 	public MyFrame()
 	{
@@ -37,10 +39,10 @@ public class MyFrame extends JFrame
 		JMenu accountMenu = new JMenu("Account");
 		JMenuItem create = new JMenuItem("Create an Account");
 		accountMenu.add(create);                         
-		JMenuItem removeAccount = new JMenuItem("Remove an Account");
-		accountMenu.add(removeAccount);
-		JMenuItem findAccount = new JMenuItem("Find an Account");
-		accountMenu.add(findAccount);
+		JMenuItem remove = new JMenuItem("Remove an Account");
+		accountMenu.add(remove);
+		JMenuItem find = new JMenuItem("Find an Account");
+		accountMenu.add(find);
 		menubar.add(accountMenu); 
 		
 		JMenu transactionMenu = new JMenu("Transaction");
@@ -70,15 +72,33 @@ public class MyFrame extends JFrame
 		});
 		
 		
+		removeAccount = new RemoveAccount(accounts);
+		overall.add(removeAccount, "Remove Account");
 		
+		remove.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				cl.show(overall,  "Remove Account");
+			}
+		});
 		
+		findAccount = new FindAccount(accounts);
+		overall.add(findAccount, "Find Account");
+		find.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				cl.show(overall,  "Find Account");
+			}
+		});
 		
 		
 		home.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-				cl.show(overall,  "Welcome Sceen");
+				cl.show(overall,  "Welcome Screen");
 			}
 		});
 		
