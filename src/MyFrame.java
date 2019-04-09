@@ -18,6 +18,8 @@ public class MyFrame extends JFrame
 	private CreateAccount createAccount;
 	private RemoveAccount removeAccount;
 	private FindAccount findAccount;
+	private Deposit deposit;
+	private Withdraw withdraw;
 	
 	public MyFrame()
 	{
@@ -46,11 +48,11 @@ public class MyFrame extends JFrame
 		menubar.add(accountMenu); 
 		
 		JMenu transactionMenu = new JMenu("Transaction");
-		JMenuItem deposit = new JMenuItem("Deposit");
-		transactionMenu.add(deposit);
-		JMenuItem withdraw = new JMenuItem("Withdraw");
-		transactionMenu.add(withdraw);
-		JMenuItem transfer = new JMenuItem("Transfer");
+		JMenuItem depositAmount = new JMenuItem("Deposit an Amount");
+		transactionMenu.add(depositAmount);
+		JMenuItem withdrawAmount = new JMenuItem("Withdraw an Amount");
+		transactionMenu.add(withdrawAmount);
+		JMenuItem transfer = new JMenuItem("Transfer an Amount");
 		transactionMenu.add(transfer);
 		JMenuItem balance = new JMenuItem("Get Balance");
 		transactionMenu.add(balance);
@@ -90,6 +92,26 @@ public class MyFrame extends JFrame
 			public void actionPerformed(ActionEvent e) 
 			{
 				cl.show(overall,  "Find Account");
+			}
+		});
+		
+		deposit = new Deposit(accounts);
+		overall.add(deposit, "Deposit Amount");
+		depositAmount.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				cl.show(overall,  "Deposit Amount");
+			}
+		});
+		
+		withdraw = new Withdraw(accounts);
+		overall.add(withdraw, "Withdraw Amount");
+		withdrawAmount.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				cl.show(overall,  "Withdraw Amount");
 			}
 		});
 		

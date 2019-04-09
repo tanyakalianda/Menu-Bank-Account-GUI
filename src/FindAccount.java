@@ -37,11 +37,7 @@ public class FindAccount extends JPanel
 					if (accounts.get(i).getAccountNumber() == Integer.parseInt(numberBox.getText()))
 					{
 						System.out.println(accounts.get(i).toString());
-						findAccount.setText("Account Found");
-					}
-					else
-					{
-						findAccount.setText("Invalid Input");
+						findAccount.setText("Account Displayed");
 					}
 				}
 			}

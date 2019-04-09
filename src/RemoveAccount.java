@@ -17,21 +17,6 @@ public class RemoveAccount extends JPanel
 		
 		setLayout(null);
 		
-		JLabel title = new JLabel();
-		title.setText("Remove an Account ");
-		title.setBounds(10, 10, 150,50);
-		add(title);
-		
-		JLabel name = new JLabel();             //error with finding the right name
-		name.setBounds(50,50,100,50);
-		name.setText("Name: ");
-		add(name);
-		
-		JTextField nameBox = new JTextField();
-		nameBox.setBounds(100, 50, 100, 50);
-		add(nameBox);
-		
-		
 		JLabel number = new JLabel();
 		number.setBounds(50,150,200,50);
 		number.setText("Account Number to Remove: ");
@@ -50,14 +35,10 @@ public class RemoveAccount extends JPanel
 			{
 				for (int i = accounts.size() - 1; i>=0; i--)
 				{
-					if (accounts.get(i).getAccountNumber() == Integer.parseInt(numberBox.getText()) && (accounts.get(i).getName() == nameBox.getText()))
+					if (accounts.get(i).getAccountNumber() == Integer.parseInt(numberBox.getText()))
 					{
 						accounts.remove(i);
 						removeAccount.setText("Account Removed");
-					}
-					else
-					{
-						removeAccount.setText("Invalid Input");
 					}
 				}
 			}
