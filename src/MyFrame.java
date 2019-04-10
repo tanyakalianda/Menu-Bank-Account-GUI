@@ -20,6 +20,8 @@ public class MyFrame extends JFrame
 	private FindAccount findAccount;
 	private Deposit deposit;
 	private Withdraw withdraw;
+	private Transfer transfer;
+	private GetBalance getBalance;
 	
 	public MyFrame()
 	{
@@ -52,9 +54,9 @@ public class MyFrame extends JFrame
 		transactionMenu.add(depositAmount);
 		JMenuItem withdrawAmount = new JMenuItem("Withdraw an Amount");
 		transactionMenu.add(withdrawAmount);
-		JMenuItem transfer = new JMenuItem("Transfer an Amount");
-		transactionMenu.add(transfer);
-		JMenuItem balance = new JMenuItem("Get Balance");
+		JMenuItem transferAmount = new JMenuItem("Transfer an Amount");
+		transactionMenu.add(transferAmount);
+		JMenuItem balance = new JMenuItem("Get the Balance");
 		transactionMenu.add(balance);
 		menubar.add(transactionMenu);
 		
@@ -112,6 +114,26 @@ public class MyFrame extends JFrame
 			public void actionPerformed(ActionEvent e) 
 			{
 				cl.show(overall,  "Withdraw Amount");
+			}
+		});
+		
+		transfer = new Transfer(accounts);
+		overall.add(transfer, "Transfer Amount");
+		transferAmount.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				cl.show(overall,  "Transfer Amount");
+			}
+		});
+		
+		getBalance = new GetBalance(accounts);
+		overall.add(getBalance, "Get Balance");
+		balance.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				cl.show(overall,  "Get Balance");
 			}
 		});
 		

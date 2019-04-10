@@ -7,11 +7,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Withdraw extends JPanel
+public class GetBalance extends JPanel
 {
 	private ArrayList<BankAccount> accounts;
 	
-	public Withdraw(ArrayList<BankAccount> bankAccount)
+	public GetBalance(ArrayList<BankAccount> bankAccount)
 	{
 		accounts = bankAccount;
 		setLayout(null);
@@ -25,19 +25,10 @@ public class Withdraw extends JPanel
 		accNumBox.setBounds(150, 50, 100, 50);
 		add(accNumBox);
 		
-		JLabel amount = new JLabel();
-		amount.setBounds(50, 170, 150, 50);
-		amount.setText("Amount to Withdraw: ");
-		add(amount);
-		
-		JTextField amountBox = new JTextField();
-		amountBox.setBounds(175, 170, 100, 50);
-		add(amountBox);
-		
-		JButton withdraw = new JButton();
-		withdraw.setBounds(50, 250, 150, 50);
-		withdraw.setText("Withdraw");
-		withdraw.addActionListener(new ActionListener()
+		JButton getBalance = new JButton();
+		getBalance.setBounds(50, 150, 150, 50);
+		getBalance.setText("Get Balance");
+		getBalance.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
@@ -45,19 +36,16 @@ public class Withdraw extends JPanel
 				{
 					if (accounts.get(i).getAccountNumber() == Integer.parseInt(accNumBox.getText()))
 					{
-						accounts.get(i).withdraw(Double.parseDouble(amountBox.getText()));
-						System.out.println(accounts.get(i).toString());
-						withdraw.setText("Amount Withdrawn");
+						System.out.println("Your balance is: " + accounts.get(i).getBalance());
+						getBalance.setText("Balance Printed");
 					}
 				}
 			}
 		});
-		add(withdraw);
+		add(getBalance);
+			
 		
 		
-		
-		//try catch in welcome screen
 		
 	}
-	
 }
